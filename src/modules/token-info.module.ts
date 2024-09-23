@@ -3,6 +3,7 @@ import { TokenInfoController } from '../controllers/token-info.controller';
 import { TokenInfoService } from '../services/token-info.service';
 import { AccessGuard } from '../guards/access-guard.guard';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { ThrottlerService } from '../throttler/throttler.service';
 
 @Module({
   imports: [
@@ -21,6 +22,6 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     ]),
   ],
   controllers: [TokenInfoController],
-  providers: [TokenInfoService, AccessGuard],
+  providers: [TokenInfoService, AccessGuard, ThrottlerService],
 })
 export class AppModule {}
